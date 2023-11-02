@@ -24,19 +24,32 @@ app.use((req, res, next) => {
     next();
 });
 app.use(cors());
+app.use(
+    cors({
+        origin: [],
+        methods: ["GET", "POST", "PATCH", "DELETE"],
+    })
+);
 
-app.use(express.urlencoded({extended: true}));
+// app.use(express.urlencoded({extended: true}));
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 // app.use('/', routes);
 
-app.use(function (req, res) {
-    res.render('error');
+// app.use(function (req, res) {
+//     res.render('error');
+// });
+
+app.use(express.json());
+app.use((req, res, next) => {
+    console.log(req.path, req.method);
+    next();
 });
 
 
-app.use("/", orderRoute)
+
+app.use("/api/orders", orderRoute)
 
 
 db.connect();
