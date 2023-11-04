@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import OrderContainer from "./components/orderContainer";
 import DeliveryContainer from "./components/deliveryContainer";
+import './components/root.css'
 
 const OrderPage = () => {
     const { data: orders, loading } = useFetch("/api/orders/");
@@ -17,21 +18,31 @@ const OrderPage = () => {
             ) : (
                 <div>
                     <h2>All Orders</h2>
-                    <ul>
-                        {orders.map((order, index) => (
-                            <div key={index}>
-                                <OrderContainer
-                                    className=""
-                                    order={order}
-                                />
+                    <div className="wrapper">
+                        {orders.map((order) => (
+                            <div className="container">
 
-                                <DeliveryContainer
-                                    className=""
-                                    delivery_option={order.mode}
-                                />
+                                <div className="buttoncontainer">
+                                    <button>Accept</button>
+                                    <button>Reject</button>
+                                    <button>Complete</button>
+                                </div>
+
+                                <div className="infocontainer">
+                                    <OrderContainer
+                                        className=""
+                                        order={order}
+                                    />
+
+                                    <DeliveryContainer
+                                        className=""
+                                        order={order}
+                                    />
+                                </div>
+                                
                             </div>
                         ))}
-                    </ul>
+                    </div>
                 </div>
             )}
         </div>
