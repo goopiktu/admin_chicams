@@ -1,13 +1,25 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useFetch from "../hooks/useFetch";
 import LeftContainer from "./components/leftContainer";
 import RightContainer from "./components/rightContainer";
 import DayPicker from "./components/dayPicker";
-// import ApprovalButtons from "./components/buttons";
+import OrderLimit from "./components/limiter";
 import './components/root.css'
 
 const OrderPage = () => {
-    const { data: orders, loading } = useFetch("/api/orders/");
+    const [selectedDate, setSelectedDate] = useState(
+        new Date().getFullYear() +
+        "-" +
+        (new Date().getMonth() + 1) +
+        "-" +
+        new Date().getDate()
+    );
+
+    const { data: orders, loading } = useFetch(`/api/orders/?date=${selectedDate}`);
+
+    const handleDateChange = (newDate) => {
+        setSelectedDate(newDate);
+    };
 
     useEffect(() => {
         console.log(orders);
@@ -21,33 +33,34 @@ const OrderPage = () => {
                 <div>
                     <h2>All Orders</h2>
                     <div className="wrapper">
-                        <DayPicker/>
+                        <DayPicker selectedDate={selectedDate} onDateChange={handleDateChange} />
+                        <div>
+                            <OrderLimit/>
+                            {orders.map((order) => (
+                                <div className="container" key={order.id}>
 
-                        {orders.map((order) => (
-                            <div className="container">
+                                    <div className="buttoncontainer">
+                                        <button>Accept</button>
+                                        <button>Reject</button>
+                                        <button>Complete</button> 
+                                    </div>
 
-                                <div className="buttoncontainer">
+                                    <div className="infocontainer">
+                                        <LeftContainer
+                                            className=""
+                                            order={order}
+                                        />
+
+                                        <RightContainer
+                                            className=""
+                                            order={order}
+                                        />
+                                    </div>
                                     
-                                  
-                                    <button>Accept</button>
-                                    <button>Reject</button>
-                                    <button>Complete</button> 
                                 </div>
-
-                                <div className="infocontainer">
-                                    <LeftContainer
-                                        className=""
-                                        order={order}
-                                    />
-
-                                    <RightContainer
-                                        className=""
-                                        order={order}
-                                    />
-                                </div>
-                                
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+                        
                     </div>
                 </div>
             )}

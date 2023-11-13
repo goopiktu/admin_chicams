@@ -1,19 +1,12 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-function DayPicker() {
-  const [selectedDate, setSelectedDate] = useState(
-    new Date().getFullYear() +
-      "-" +
-      (new Date().getMonth() + 1) +
-      "-" +
-      new Date().getDate()
-  );
-
+export default function DayPicker({ selectedDate, onDateChange }) {
   const setDate = (newDate) => {
     const date = newDate || new Date();
-    setSelectedDate(
-      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-    );
+    const formattedDate =
+      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    onDateChange(formattedDate);
   };
 
   const getPreviousDate = () => {
@@ -43,4 +36,9 @@ function DayPicker() {
   );
 }
 
-export default DayPicker;
+DayPicker.propTypes = {
+  selectedDate: PropTypes.string.isRequired,
+  onDateChange: PropTypes.func.isRequired,
+};
+
+
