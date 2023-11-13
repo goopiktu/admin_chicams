@@ -6,6 +6,11 @@ const getOrderList = async(req, res) => {
     res.status(200).json(orderList)
 }
 
+const getOrderbyDate = async(req, res) => {
+    const orderList = await Order.find({})
+}
+
+
 module.exports = {
     getOrderList
 }

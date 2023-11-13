@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
-import OrderContainer from "./components/orderContainer";
-import DeliveryContainer from "./components/deliveryContainer";
+import LeftContainer from "./components/leftContainer";
+import RightContainer from "./components/rightContainer";
+import DayPicker from "./components/dayPicker";
+// import ApprovalButtons from "./components/buttons";
 import './components/root.css'
 
 const OrderPage = () => {
@@ -19,22 +21,26 @@ const OrderPage = () => {
                 <div>
                     <h2>All Orders</h2>
                     <div className="wrapper">
+                        <DayPicker/>
+
                         {orders.map((order) => (
                             <div className="container">
 
                                 <div className="buttoncontainer">
+                                    
+                                  
                                     <button>Accept</button>
                                     <button>Reject</button>
-                                    <button>Complete</button>
+                                    <button>Complete</button> 
                                 </div>
 
                                 <div className="infocontainer">
-                                    <OrderContainer
+                                    <LeftContainer
                                         className=""
                                         order={order}
                                     />
 
-                                    <DeliveryContainer
+                                    <RightContainer
                                         className=""
                                         order={order}
                                     />

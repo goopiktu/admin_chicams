@@ -1,10 +1,10 @@
 import React from "react";
 import './root.css'
-export default function OrderContainer({order}) {
+export default function LeftContainer({order}) {
 
     return(
 
-        <div className="ordercontainer">
+        <div className="leftcontainer">
             <div>
                 <h1>Order Number</h1>
                 <p>{order._id}</p>
