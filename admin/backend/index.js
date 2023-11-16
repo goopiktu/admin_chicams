@@ -4,6 +4,8 @@ const express = require('express');
 const OrderModel = require('./models/OrderModel')
 
 const orderRoute = require('./routes/order')
+const adminRoute = require('./routes/admin')
+
 const mongoose = require("mongoose");
 
 require("dotenv").config();
@@ -16,7 +18,7 @@ const db = require('./models/db.js');
 
 const app = express();
 
-const port = process.env.PORT | 4000;
+const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use((req, res, next) => {
@@ -24,22 +26,12 @@ app.use((req, res, next) => {
     next();
 });
 app.use(cors());
-app.use(
-    cors({
-        origin: [],
-        methods: ["GET", "POST", "PATCH", "DELETE"],
-    })
-);
-
-// app.use(express.urlencoded({extended: true}));
-
-// app.use(express.static('public'));
-
-// app.use('/', routes);
-
-// app.use(function (req, res) {
-//     res.render('error');
-// });
+// app.use(
+//     cors({
+//         origin: [],
+//         methods: ["GET", "POST", "PATCH", "DELETE"],
+//     })
+// );
 
 app.use(express.json());
 app.use((req, res, next) => {
@@ -50,7 +42,7 @@ app.use((req, res, next) => {
 
 
 app.use("/api/orders", orderRoute)
-
+app.use("/api/updateLimit", adminRoute)
 
 db.connect();
 

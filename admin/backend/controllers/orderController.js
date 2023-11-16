@@ -32,5 +32,5 @@ const getOrderList = async (req, res) => {
 
 
 module.exports = {
-    getOrderList
+  getOrderList
 }
