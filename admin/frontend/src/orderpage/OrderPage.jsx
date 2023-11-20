@@ -7,13 +7,17 @@ import OrderLimit from "./components/limiter";
 import './components/root.css'
 
 const OrderPage = () => {
-    const [selectedDate, setSelectedDate] = useState(
-        new Date().getFullYear() +
-        "-" +
-        (new Date().getMonth() + 1) +
-        "-" +
-        new Date().getDate()
-    );
+    const [selectedDate, setSelectedDate] = useState(() => {
+        const currentDate = new Date();
+        const mm = String(currentDate.getMonth() + 1).padStart(2, "0");
+        const dd = String(currentDate.getDate()).padStart(2, "0");
+        const yyyy = currentDate.getFullYear();
+      
+        const formattedDate = `${mm}/${dd}/${yyyy}`;
+        console.log("Initial selectedDate:", formattedDate);
+      
+        return formattedDate;
+    });
 
     const { data: orders, loading } = useFetch(`/api/orders/?date=${selectedDate}`);
 

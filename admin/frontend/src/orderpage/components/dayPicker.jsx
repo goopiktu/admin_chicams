@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 export default function DayPicker({ selectedDate, onDateChange }) {
+  const formatDate = (date) => {
+    const mm = String(date.getMonth() + 1).padStart(2, "0");
+    const dd = String(date.getDate()).padStart(2, "0");
+    const yyyy = date.getFullYear();
+    return `${mm}/${dd}/${yyyy}`;
+  };
+
   const setDate = (newDate) => {
     const date = newDate || new Date();
-    const formattedDate =
-      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+    const formattedDate = formatDate(date);
     onDateChange(formattedDate);
   };
 
@@ -40,5 +46,3 @@ DayPicker.propTypes = {
   selectedDate: PropTypes.string.isRequired,
   onDateChange: PropTypes.func.isRequired,
 };
-
-

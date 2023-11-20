@@ -1,15 +1,25 @@
 var mongoose = require('mongoose');
 
 var OrderSchema = new mongoose.Schema({
+    productName: {
+        type: String,
+        required: true
+    },
+
     name: {
         type: String,
         required: true
     },
    
     contactNo: {
-        type: Number,
+        type: String,
         required: true
     }, 
+
+    email: {
+        type: String,
+        required: true
+    },
 
     fbLink: {
         type: String,
@@ -23,10 +33,15 @@ var OrderSchema = new mongoose.Schema({
         required: true
     },
 
+    dedication: {
+        type: String,
+        default: 'None'
+    },
+
     orderDes: {
         type: String,
         default: 'None',
-        required: true
+        // required: true
     },
 
     address: {
@@ -35,15 +50,20 @@ var OrderSchema = new mongoose.Schema({
     },
 
     dateOrdered: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        // default: Date.now,
         required: true  
     },
 
     datePickup: {
         type: Date,
         default: Date.now,
+        // required: true
     },
+
+    image: {
+        type: String
+    }
 
 });
 
