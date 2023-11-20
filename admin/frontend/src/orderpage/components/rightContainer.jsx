@@ -2,7 +2,7 @@ import React from "react";
 import './root.css'
 
 
-export default function DeliveryContainer({order}) {
+export default function RightContainer({order}) {
 
     return(
 

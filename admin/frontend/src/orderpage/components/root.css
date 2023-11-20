@@ -37,7 +37,7 @@
     margin: 4px 4px 4px 4px;
     padding: 4px 4px 4px 4px;
     /* margin: auto; */
-    
+    justify-content: space-between;
     /* border: solid;
     border-color: #7A7A7A;
     border-radius: 10px; */

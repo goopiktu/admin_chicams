@@ -1,17 +1,25 @@
 var mongoose = require('mongoose');
-// need potential fields 
-// 1 that holds the images that customer will upload as reference
-// 2 the email that they will use so we can send them a auto generated email
+
 var OrderSchema = new mongoose.Schema({
+    productName: {
+        type: String,
+        required: true
+    },
+
     name: {
         type: String,
         required: true
     },
    
     contactNo: {
-        type: Number,
+        type: String,
         required: true
     }, 
+
+    email: {
+        type: String,
+        required: true
+    },
 
     fbLink: {
         type: String,
@@ -24,23 +32,39 @@ var OrderSchema = new mongoose.Schema({
         default: 'Pick-up',
         required: true
     },
+
+    dedication: {
+        type: String,
+        default: 'None'
+    },
+
     orderDes: {
         type: String,
         default: 'None',
-        required: true
+        // required: true
     },
 
     address: {
         type: String,
-        default: 'Pick-Up',
-        required: true
+        default: 'Pick-Up'
     },
 
     dateOrdered: {
-        type: Date,
-        default: Date.now,
+        type: String,
+        // default: Date.now,
         required: true  
     },
+
+    datePickup: {
+        type: Date,
+        default: Date.now,
+        // required: true
+    },
+
+    image: {
+        type: String
+    }
+
 });
 
 module.exports = mongoose.model('Order', OrderSchema, 'orders');
