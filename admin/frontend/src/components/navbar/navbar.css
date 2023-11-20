@@ -1,0 +1,78 @@
+body{
+    margin: 0;
+}
+
+.content-navbar{
+    width: 223px;
+    height: 1024px;
+    flex-shrink: 0;
+
+    background-color: #DCBCD8;
+}
+
+.selection{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 11px;
+
+    /* position: relative; */
+    position: relative;
+    width: 149px;
+    height: 154px;
+    left: calc(50% - 149px/2 + 37px);
+    top: calc(50% - 154px/2 - 269.5px);
+}
+
+.text-navbar{
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+
+    color: #A05496;
+    text-decoration: none;
+}
+
+.text-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 10px;
+
+    width: 149px;
+    height: 44px;
+}
+
+.toggle-navbar{
+    width: 4px;
+    height: 38px;
+
+    /* background: #A05496; */
+}
+
+.img-logo{
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    left: 12px;
+    top: 12px;
+
+}
+
+/* #toggle-calendar{
+    background-color: #DCBCD8;
+}
+
+#toggle-date{
+    background-color: #DCBCD8;
+}
+
+#toggle-settings{
+    background-color: #DCBCD8;
+} */
