@@ -30,31 +30,40 @@ const OrderPage = () => {
     }, [orders]);
 
     return (
-        <div>
+        <div className="date-page-container">
             {loading ? (
                 <p>Loading...</p>
             ) : (
-                <div>
-                    <h2>All Orders</h2>
+                <div className="order-container"> 
+                    <div className="header">
+
+                    </div>
                     <div className="wrapper">
                         <DayPicker selectedDate={selectedDate} onDateChange={handleDateChange} />
-                        <div>
-                            <OrderLimit/>
+                        <div className="container-wrapper">
+                            {/* <OrderLimit/> */}
                             {orders.map((order) => (
                                 <div className="container" key={order.id}>
 
-                                    <div className="buttoncontainer">
-                                        <button>Accept</button>
-                                        <button>Reject</button>
-                                        <button>Complete</button> 
+                                    <div className="header-container">
+                                        <div className="order-number">
+                                            <h1>Order Number</h1>
+                                            <p>{order._id}</p>
+                                        </div>
+                                        <div className="buttoncontainer">
+                                            <button>Accept</button>
+                                            <button>Reject</button>
+                                            <button>Complete</button> 
+                                        </div>
                                     </div>
+                                    
 
                                     <div className="infocontainer">
                                         <LeftContainer
                                             className=""
                                             order={order}
                                         />
-
+                                        <div className="spacer"/>
                                         <RightContainer
                                             className=""
                                             order={order}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import "./dayPicker.css";
 
 export default function DayPicker({ selectedDate, onDateChange }) {
   const formatDate = (date) => {
@@ -34,9 +35,9 @@ export default function DayPicker({ selectedDate, onDateChange }) {
   };
 
   return (
-    <div>
-      <h3>Date: {selectedDate}</h3>
+    <div className="body-header">
       <button onClick={getPreviousDate}>Previous</button>
+      <h3>{selectedDate}</h3>
       <button onClick={getNextDate}>Next</button>
     </div>
   );

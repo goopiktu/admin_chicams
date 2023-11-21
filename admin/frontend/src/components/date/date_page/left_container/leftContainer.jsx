@@ -1,15 +1,11 @@
 import React from "react";
-// import './root.css'
+import './leftContainer.css'
 export default function LeftContainer({order}) {
 
     return(
 
         <div className="leftcontainer">
-            <div>
-                <h1>Order Number</h1>
-                <p>{order._id}</p>
-            </div>
-
+        
             <div>
                 <h1>Product</h1>
                 <p>{order.productName}</p>
