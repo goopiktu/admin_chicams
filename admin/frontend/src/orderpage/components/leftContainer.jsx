@@ -12,7 +12,7 @@ export default function LeftContainer({order}) {
 
             <div>
                 <h1>Product</h1>
-                {/* <p>{order.product}</p> */}
+                <p>{order.productName}</p>
                 <p></p>
             </div>
 
