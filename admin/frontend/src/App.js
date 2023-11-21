@@ -1,4 +1,4 @@
-import OrderPage from "./orderpage/OrderPage";
+import OrderPage from "./components/date/date.jsx";
 //change into calendar.jsx
 import Calendar from "./components/calendar/calendar.jsx";
 import Date from "./components/date/date.jsx";

@@ -1,5 +1,5 @@
 import React from "react";
-import './root.css'
+// import './root.css'
 export default function LeftContainer({order}) {
 
     return(

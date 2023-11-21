@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import useFetch from "../hooks/useFetch";
-import LeftContainer from "./components/leftContainer";
-import RightContainer from "./components/rightContainer";
-import DayPicker from "./components/dayPicker";
-import OrderLimit from "./components/limiter";
-import './components/root.css'
+import useFetch from "../../../hooks/useFetch";
+import LeftContainer from "./left_container/leftContainer";
+import RightContainer from "./right_container/rightContainer";
+import DayPicker from "./day_picker/dayPicker";
+import OrderLimit from "./limiter/limiter";
+import './root.css'
 
 const OrderPage = () => {
     const [selectedDate, setSelectedDate] = useState(() => {
