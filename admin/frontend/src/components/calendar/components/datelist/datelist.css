@@ -30,6 +30,7 @@
 .prev-month-arrow{
         width: 64px;
         height: 87px;
+        margin-top: 15px;
 }
 
 .month-name{
@@ -41,11 +42,24 @@
 .next-month-arrow{
         width: 64px;
         height: 87px;
+        margin-top: 15px;
 }
 
 .month-label{
         margin: 0;
         text-align: center;
+
+        width: auto;
+        height: 87px;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 87px;
+
+        color: #A05496;
+
 }
 
 .datelist-divider{
@@ -71,7 +85,17 @@
 }
 
 .year{
-        text-align: center;
+        margin: auto;
+        width: 58px;
+        height: 33px;
+
+        font-family: 'Nunito';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 33px;
+
+        color: #A05496;
 }
 
 .daylist{

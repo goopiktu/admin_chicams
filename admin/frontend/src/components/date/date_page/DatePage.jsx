@@ -7,6 +7,7 @@ import OrderLimit from "./limiter/limiter";
 import RejectButton from "./buttons/reject_button/rejectButton";
 import AcceptButton from "./buttons/accept_button/acceptButton";
 import CompleteButton from "./buttons/complete_button/completeButton";
+import TopBar from "../../header/header.jsx";
 import './Datepage.css'
 
 const OrderPage = () => {
@@ -38,9 +39,7 @@ const OrderPage = () => {
                 <p>Loading...</p>
             ) : (
                 <div className="order-container"> 
-                    <div className="header">
-
-                    </div>
+                    <TopBar/>
                     <div className="wrapper">
                         <DayPicker selectedDate={selectedDate} onDateChange={handleDateChange} />
                         <div className="divider-wrapper">
