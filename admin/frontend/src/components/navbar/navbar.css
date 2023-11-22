@@ -4,8 +4,10 @@ body{
 
 .content-navbar{
     width: 223px;
-    height: 1024px;
-    flex-shrink: 0;
+    max-width: 223px;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
 
     background-color: #DCBCD8;
 }
