@@ -39,11 +39,11 @@ export default function DayPicker({ selectedDate, onDateChange }) {
   return (
     <div className="body-header">
       <button onClick={getPreviousDate}>
-        <FontAwesomeIcon icon={faChevronLeft} />
+        <FontAwesomeIcon icon={faChevronLeft} size="2x" style={ {color: '#A05496'}}/>
       </button>
       <h3>{selectedDate}</h3>
       <button onClick={getNextDate}>
-        <FontAwesomeIcon icon={faChevronRight} />
+        <FontAwesomeIcon icon={faChevronRight} size="2x" style={ {color: '#A05496'}}/>
       </button>
     </div>
   );

@@ -1,5 +1,6 @@
 import React from "react";
 import './right_container.css'
+import '../../root.css'
 
 
 export default function RightContainer({order}) {

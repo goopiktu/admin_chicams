@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 import "./rejectButton.css"
+import "../button.css"
 
 const RejectButton = () => {
 
@@ -27,7 +28,7 @@ const RejectButton = () => {
           <button
             className="button"
             onClick={() => {
-              console.log('modal closed ');
+              console.log('modal closed');
               close();
             }}
           >
@@ -37,14 +38,6 @@ const RejectButton = () => {
       </div>
     )}
     </Popup>
-{/* 
-      {isConfirmationOpen && (
-        <div className="confirmation-popup">
-          <p>Are you sure you want to reject this order?</p>
-          <button onClick={handleRejectOrder}>Yes, Reject</button>
-          <button onClick={() => setIsConfirmationOpen(false)}>Cancel</button>
-        </div>
-      )} */}
     </div>
   );
 };

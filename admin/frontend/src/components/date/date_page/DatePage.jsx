@@ -4,8 +4,10 @@ import LeftContainer from "./left_container/leftContainer";
 import RightContainer from "./right_container/rightContainer";
 import DayPicker from "./day_picker/dayPicker";
 import OrderLimit from "./limiter/limiter";
-import RejectButton from "./reject_button/rejectButton";
-import './root.css'
+import RejectButton from "./buttons/reject_button/rejectButton";
+import AcceptButton from "./buttons/accept_button/acceptButton";
+import CompleteButton from "./buttons/complete_button/completeButton";
+import './Datepage.css'
 
 const OrderPage = () => {
     const [selectedDate, setSelectedDate] = useState(() => {
@@ -47,37 +49,41 @@ const OrderPage = () => {
                         
                         <div className="container-wrapper">
                             {/* <OrderLimit/> */}
-                            {orders.map((order) => (
-                                <div className="container" key={order.id}>
 
-                                    <div className="header-container">
-                                        <div className="order-number">
-                                            <h1>Order Number</h1>
+                            {orders.length === 0 ? ( <p>No orders.</p>): (
+                                orders.map((order) => (
+                                    <div className="container" key={order.id}>
+    
+                                        <div className="header-container">
+                                            <div className="order-number">
+                                                <h1>Order Number</h1>
+                                                <div className="spacer"/>
+                                                <p>{order._id}</p>
+                                            </div>
+                                            <div className="buttoncontainer">
+                                                <AcceptButton/>
+                                                <RejectButton/>
+                                                <CompleteButton/> 
+                                            </div>
+                                        </div>
+                                        
+    
+                                        <div className="infocontainer">
+                                            <LeftContainer
+                                                className=""
+                                                order={order}
+                                            />
                                             <div className="spacer"/>
-                                            <p>{order._id}</p>
+                                            <RightContainer
+                                                className=""
+                                                order={order}
+                                            />
                                         </div>
-                                        <div className="buttoncontainer">
-                                            <button>Accept</button>
-                                            <RejectButton/>
-                                            <button>Complete</button> 
-                                        </div>
+                                        
                                     </div>
-                                    
-
-                                    <div className="infocontainer">
-                                        <LeftContainer
-                                            className=""
-                                            order={order}
-                                        />
-                                        <div className="spacer"/>
-                                        <RightContainer
-                                            className=""
-                                            order={order}
-                                        />
-                                    </div>
-                                    
-                                </div>
-                            ))}
+                                ))
+                            )}
+                            
                         </div>
                         
                     </div>
