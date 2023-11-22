@@ -1,0 +1,11 @@
+.top-bar{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 10px;
+
+    height: 88px;
+
+    background: #A05496;
+}

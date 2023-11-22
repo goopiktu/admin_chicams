@@ -8,8 +8,6 @@ function DatePage(){
         <div style={{'display' : 'flex'}}> 
             <NavBar/>
             <OrderPage/>
-           
-           
         </div>
     )
 }
