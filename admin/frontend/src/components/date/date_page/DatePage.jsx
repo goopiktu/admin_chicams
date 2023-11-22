@@ -4,6 +4,7 @@ import LeftContainer from "./left_container/leftContainer";
 import RightContainer from "./right_container/rightContainer";
 import DayPicker from "./day_picker/dayPicker";
 import OrderLimit from "./limiter/limiter";
+import RejectButton from "./reject_button/rejectButton";
 import './root.css'
 
 const OrderPage = () => {
@@ -40,6 +41,10 @@ const OrderPage = () => {
                     </div>
                     <div className="wrapper">
                         <DayPicker selectedDate={selectedDate} onDateChange={handleDateChange} />
+                        <div className="divider-wrapper">
+                            <div className="divider"/>
+                        </div>
+                        
                         <div className="container-wrapper">
                             {/* <OrderLimit/> */}
                             {orders.map((order) => (
@@ -48,11 +53,12 @@ const OrderPage = () => {
                                     <div className="header-container">
                                         <div className="order-number">
                                             <h1>Order Number</h1>
+                                            <div className="spacer"/>
                                             <p>{order._id}</p>
                                         </div>
                                         <div className="buttoncontainer">
                                             <button>Accept</button>
-                                            <button>Reject</button>
+                                            <RejectButton/>
                                             <button>Complete</button> 
                                         </div>
                                     </div>

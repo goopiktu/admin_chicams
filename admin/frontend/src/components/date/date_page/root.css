@@ -28,6 +28,7 @@
     flex: auto;
     display: flex;
     flex-direction: row;
+    margin: 10px;
     /* margin: 4px 4px 4px 4px;
     padding: 4px 4px 4px 4px; */
     /* margin: auto; */
@@ -70,7 +71,7 @@ p {
 
 .header {
     display: flex;
-    background-color: #A05496;
+    /* background-color: #A05496; */
     width: 100%;
     min-height: 10%;
 }
@@ -87,8 +88,26 @@ p {
 .header-container {
     display: flex;
     justify-content: space-between;
+    margin: auto;
 }
 
 .spacer {
     min-width: 10px;
+}
+
+.divider-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.divider {
+    background-color: #d9d9d9;
+    height: 2px;
+    width: 90%;
+}
+
+.order-number {
+    display: flex;
 }

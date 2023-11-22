@@ -7,6 +7,11 @@ export default function LeftContainer({order}) {
         <div className="leftcontainer">
         
             <div>
+                <h1>Ordered On</h1>
+                <p>{order.dateOrdered}</p>
+            </div>
+
+            <div>
                 <h1>Product</h1>
                 <p>{order.productName}</p>
                 <p></p>
@@ -23,9 +28,9 @@ export default function LeftContainer({order}) {
             </div>
 
             <div>
+                <h1>Email</h1>
+                <p>{order.email}</p>
                 
-                <h1>Facebook Link</h1>
-                <a href={order.fbLink}>{order.fbLink}</a>
             </div>
 
 

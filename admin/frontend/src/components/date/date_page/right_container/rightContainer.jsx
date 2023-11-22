@@ -7,6 +7,13 @@ export default function RightContainer({order}) {
     return(
 
         <div className="deliverycontainer">
+            
+            <div>   
+                <h1>Facebook Link</h1>
+                <a href={order.fbLink}>{order.fbLink}</a>
+            </div>
+            
+
             <div>
                 <h1 className="infoPrompt">Delivery Option & Address</h1>
                 <p>{order.mode + " | " + order.address}</p>
