@@ -18,7 +18,8 @@ const RejectButton = () => {
                     Are you sure you want to reject the order?
                 </div>
         <div className="actions">
-          <button 
+          <button
+            className='yes'
           onClick={() => {
             console.log('cliff')
           }}>
@@ -26,7 +27,7 @@ const RejectButton = () => {
           </button>
 
           <button
-            className="button"
+            className="no"
             onClick={() => {
               console.log('modal closed');
               close();

@@ -79,3 +79,19 @@
     align-items: center;
 
 } */
+
+.yes {
+    background-color: #249D57;
+    height: 100%;
+    width: 25%;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+
+.no {
+    background-color: #E36363;
+    height: 100%;
+    width: 25%;
+    border-radius: 5px;
+    color: #FFFFFF;
+}

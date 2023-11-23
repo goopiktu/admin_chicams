@@ -18,6 +18,7 @@ const AcceptButton = () => {
                   </div>
           <div className="actions">
             <button 
+            className='yes'
             onClick={() => {
               console.log('cliff')
             }}>
@@ -25,7 +26,7 @@ const AcceptButton = () => {
             </button>
   
             <button
-              className="button"
+              className="no"
               onClick={() => {
                 console.log('modal closed');
                 close();

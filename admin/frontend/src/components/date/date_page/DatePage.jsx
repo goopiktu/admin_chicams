@@ -57,7 +57,7 @@ const OrderPage = () => {
                                             <div className="order-number">
                                                 <h1>Order Number</h1>
                                                 <div className="spacer"/>
-                                                <p>{order._id}</p>
+                                                <p>{order.orderNum}</p>
                                             </div>
                                             <div className="buttoncontainer">
                                                 <AcceptButton/>

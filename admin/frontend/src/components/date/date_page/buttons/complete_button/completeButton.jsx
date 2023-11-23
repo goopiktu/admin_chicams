@@ -19,6 +19,7 @@ const CompleteButton = () => {
                 </div>
         <div className="actions">
           <button 
+          className='no'
           onClick={() => {
             console.log('cliff')
           }}>
@@ -26,7 +27,7 @@ const CompleteButton = () => {
           </button>
 
           <button
-            className="button"
+            className="yes"
             onClick={() => {
               console.log('modal closed');
               close();
