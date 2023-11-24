@@ -1,5 +1,6 @@
 import React from "react";
-import './root.css'
+import './right_container.css'
+import '../../root.css'
 
 
 export default function RightContainer({order}) {
@@ -7,6 +8,13 @@ export default function RightContainer({order}) {
     return(
 
         <div className="deliverycontainer">
+            
+            <div>   
+                <h1>Facebook Link</h1>
+                <a href={order.fbLink}>{order.fbLink}</a>
+            </div>
+            
+
             <div>
                 <h1 className="infoPrompt">Delivery Option & Address</h1>
                 <p>{order.mode + " | " + order.address}</p>

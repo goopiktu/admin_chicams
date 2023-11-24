@@ -1,8 +1,8 @@
 // Limiter.js
 import { useEffect } from "react";
 import React, { useState } from "react";
-import useUpdate from "../../hooks/useUpdate";
-import useFetch from "../../hooks/useFetch";
+import useUpdate from "../../../../hooks/useUpdate";
+import useFetch from "../../../../hooks/useFetch";
 
 const Limiter = () => {
   const [count, setCount] = useState(0);

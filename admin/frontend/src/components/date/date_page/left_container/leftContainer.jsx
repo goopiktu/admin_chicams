@@ -1,18 +1,19 @@
 import React from "react";
-import './root.css'
+import './leftContainer.css'
 export default function LeftContainer({order}) {
 
     return(
 
         <div className="leftcontainer">
+        
             <div>
-                <h1>Order Number</h1>
-                <p>{order._id}</p>
+                <h1>Ordered On</h1>
+                <p>{order.dateOrdered}</p>
             </div>
 
             <div>
                 <h1>Product</h1>
-                {/* <p>{order.product}</p> */}
+                <p>{order.productName}</p>
                 <p></p>
             </div>
 
@@ -27,9 +28,9 @@ export default function LeftContainer({order}) {
             </div>
 
             <div>
+                <h1>Email</h1>
+                <p>{order.email}</p>
                 
-                <h1>Facebook Link</h1>
-                <a href={order.fbLink}>{order.fbLink}</a>
             </div>
 
 

@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import "./dayPicker.css";
 
 export default function DayPicker({ selectedDate, onDateChange }) {
   const formatDate = (date) => {
     const mm = String(date.getMonth() + 1).padStart(2, "0");
-    const dd = String(date.getDate()).padStart(2, "0");
+    const dd = String(date.getDate());
     const yyyy = date.getFullYear();
     return `${mm}/${dd}/${yyyy}`;
   };
@@ -34,10 +37,14 @@ export default function DayPicker({ selectedDate, onDateChange }) {
   };
 
   return (
-    <div>
-      <h3>Date: {selectedDate}</h3>
-      <button onClick={getPreviousDate}>Previous</button>
-      <button onClick={getNextDate}>Next</button>
+    <div className="body-header">
+      <button onClick={getPreviousDate}>
+        <FontAwesomeIcon icon={faChevronLeft} size="2x" style={ {color: '#A05496'}}/>
+      </button>
+      <h3>{selectedDate}</h3>
+      <button onClick={getNextDate}>
+        <FontAwesomeIcon icon={faChevronRight} size="2x" style={ {color: '#A05496'}}/>
+      </button>
     </div>
   );
 }

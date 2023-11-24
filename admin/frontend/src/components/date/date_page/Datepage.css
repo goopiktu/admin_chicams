@@ -1,0 +1,121 @@
+
+
+.ordercontainer{
+    border: solid;
+    border-color: #7A7A7A;
+    border-radius: 10px;
+    width: 50%;
+    
+}
+
+.container{
+    /* flex: auto; */
+    display: flex;
+    flex-direction: column;
+    margin: 4px 4px 15px 4px;
+    padding: 10px 10px 10px 10px;
+    max-width: 1123px;
+    max-height: 260px;
+    /* margin: auto; */
+    width: 90%;
+    border: solid;
+    border-width: thin;
+    border-color: #7A7A7A;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 2px #7A7A7A;
+}
+
+.infocontainer{
+    flex: auto;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    /* margin: 4px 4px 4px 4px;
+    padding: 4px 4px 4px 4px; */
+    /* margin: auto; */
+    justify-content: flex-end;
+    /* border: solid;
+    border-color: #7A7A7A;
+    border-radius: 10px; */
+}
+
+.buttoncontainer{
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin-right: 10px;
+}
+
+
+
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    height: 100%;
+    margin: 10px 10px 10px 10px;
+    margin-left: 233px;
+    max-height: 905px;
+}
+
+.order-container {
+    height: 100%;
+    width: 100%;
+    background-color: #F5EBF4;
+}
+
+.header {
+    display: flex;
+    /* background-color: #A05496; */
+    width: 100%;
+    min-height: 10%;
+}
+
+.date-page-container {
+    width: 100%;
+}
+
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* height: 100vh;  */
+    /* border: 1px solid #ccc;  */
+    overflow: auto;
+    
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+.spacer {
+    min-width: 10px;
+}
+
+.divider-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.divider {
+    background-color: #d9d9d9;
+    height: 2px;
+    width: 90%;
+}
+
+.order-number {
+    display: flex;
+}
+
+.container-wrapper::-webkit-scrollbar {
+    display: none;
+}
