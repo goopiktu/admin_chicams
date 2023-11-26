@@ -1,4 +1,3 @@
-// OrderPage.js
 import React, { useEffect, useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 import LeftContainer from "./left_container/leftContainer";
@@ -25,7 +24,7 @@ const OrderPage = () => {
         return formattedDate;
     });
 
-    const { data: orders, loading } = useFetch(`/api/orders/?date=${selectedDate}`);
+    const { data: orders, loading, refetch } = useFetch(`/api/orders/?date=${selectedDate}`);
     const { updateData: updateOrderStatus, loading: updateLoading, error: updateError } = useUpdate("/api/updateOrderStatus", "PATCH");
 
     const handleDateChange = (newDate) => {
@@ -41,6 +40,8 @@ const OrderPage = () => {
         try {
             await updateOrderStatus({ _id: order._id, status: newStatus });
             console.log("Order status updated successfully");
+            // Refetch the data after the update to trigger a re-render
+            refetch();
         } catch (error) {
             console.error("Error updating order status:", error);
         }

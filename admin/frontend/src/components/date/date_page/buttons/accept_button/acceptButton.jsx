@@ -2,14 +2,10 @@ import Popup from 'reactjs-popup';
 import "./acceptButton.css"
 // import "./button.css"
 
-const AcceptButton = ({ order, onStatusUpdate }) => {
+const AcceptButton = ({ onStatusUpdate }) => {
     
     const handleAcceptClick = async () => {
-      // You can perform any local logic here if needed
-
-      // Assuming 'Accepted' is the new status
       onStatusUpdate('Accepted');
-      
     };
 
 
