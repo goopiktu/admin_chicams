@@ -1,3 +1,4 @@
+// OrderPage.js
 import React, { useEffect, useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 import LeftContainer from "./left_container/leftContainer";
@@ -9,6 +10,7 @@ import AcceptButton from "./buttons/accept_button/acceptButton";
 import CompleteButton from "./buttons/complete_button/completeButton";
 import TopBar from "../../header/header.jsx";
 import './Datepage.css'
+import useUpdate from "../../../hooks/useUpdate.js";
 
 const OrderPage = () => {
     const [selectedDate, setSelectedDate] = useState(() => {
@@ -24,6 +26,7 @@ const OrderPage = () => {
     });
 
     const { data: orders, loading } = useFetch(`/api/orders/?date=${selectedDate}`);
+    const { updateData: updateOrderStatus, loading: updateLoading, error: updateError } = useUpdate("/api/updateOrderStatus", "PATCH");
 
     const handleDateChange = (newDate) => {
         setSelectedDate(newDate);
@@ -33,6 +36,16 @@ const OrderPage = () => {
         console.log(orders);
     }, [orders]);
 
+    const handleStatusUpdate = async (order, newStatus) => {
+        console.log(order._id, newStatus);
+        try {
+            await updateOrderStatus({ _id: order._id, status: newStatus });
+            console.log("Order status updated successfully");
+        } catch (error) {
+            console.error("Error updating order status:", error);
+        }
+    };
+    
     return (
         <div className="date-page-container">
             {loading ? (
@@ -47,12 +60,9 @@ const OrderPage = () => {
                         </div>
                         
                         <div className="container-wrapper">
-                            {/* <OrderLimit/> */}
-
-                            {orders.length === 0 ? ( <p>No orders.</p>): (
+                            {orders.length === 0 ? ( <p>No orders.</p>) : (
                                 orders.map((order) => (
                                     <div className="container" key={order.id}>
-    
                                         <div className="header-container">
                                             <div className="order-number">
                                                 <h1>Order Number</h1>
@@ -60,31 +70,20 @@ const OrderPage = () => {
                                                 <p>{order.orderNum}</p>
                                             </div>
                                             <div className="buttoncontainer">
-                                                <AcceptButton/>
-                                                <RejectButton/>
-                                                <CompleteButton/> 
+                                                <AcceptButton order={order} onStatusUpdate={(newStatus) => handleStatusUpdate(order, newStatus)}/>
+                                                <RejectButton order={order} onStatusUpdate={(newStatus) => handleStatusUpdate(order, newStatus)}/>
+                                                <CompleteButton order={order} onStatusUpdate={(newStatus) => handleStatusUpdate(order, newStatus)}/> 
                                             </div>
                                         </div>
-                                        
-    
                                         <div className="infocontainer">
-                                            <LeftContainer
-                                                className=""
-                                                order={order}
-                                            />
+                                            <LeftContainer className="" order={order} />
                                             <div className="spacer"/>
-                                            <RightContainer
-                                                className=""
-                                                order={order}
-                                            />
+                                            <RightContainer className="" order={order} />
                                         </div>
-                                        
                                     </div>
                                 ))
                             )}
-                            
                         </div>
-                        
                     </div>
                 </div>
             )}

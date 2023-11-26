@@ -42,7 +42,9 @@ app.use((req, res, next) => {
 
 
 app.use("/api/orders", orderRoute)
+app.use("/api/updateOrderStatus/", orderRoute)
 app.use("/api/updateLimit", adminRoute)
+
 
 db.connect();
 

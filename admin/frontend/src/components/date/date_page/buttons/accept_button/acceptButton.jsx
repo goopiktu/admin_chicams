@@ -2,7 +2,16 @@ import Popup from 'reactjs-popup';
 import "./acceptButton.css"
 // import "./button.css"
 
-const AcceptButton = () => {
+const AcceptButton = ({ order, onStatusUpdate }) => {
+    
+    const handleAcceptClick = async () => {
+      // You can perform any local logic here if needed
+
+      // Assuming 'Accepted' is the new status
+      onStatusUpdate('Accepted');
+      
+    };
+
 
     return (
       <div className='accept-wrapper'>
@@ -20,9 +29,11 @@ const AcceptButton = () => {
             <button 
             className='yes'
             onClick={() => {
-              console.log('cliff')
+              handleAcceptClick();
+              close();
             }}>
               Yes
+              
             </button>
   
             <button

@@ -7,6 +7,7 @@ import useFetch from "../../../../hooks/useFetch";
 const Limiter = () => {
   const [count, setCount] = useState(0);
   const { updateData, loading, error } = useUpdate("/api/updateLimit", "PATCH", { limit: count });
+  
   const { data: limit } = useFetch("/api/getLimit");
 
   const increment = () => {
@@ -27,10 +28,10 @@ const Limiter = () => {
     try {
       await updateData( count );
       console.log("Document updated successfully");
-      // Additional logic after a successful update
+    
     } catch (error) {
       console.error("Error updating document:", error);
-      // Handle the error appropriately
+  
     }
   };
   
@@ -41,7 +42,7 @@ const Limiter = () => {
         <p>Loading...</p>
       ) : (
         <div>
-          <h2>Limiter: {limit}</h2>
+          <h2>Limiter: {count}</h2>
           <button onClick={increment}>+</button>
           <button onClick={decrement}>-</button>
           <button onClick={handleUpdate}>Update Document</button>

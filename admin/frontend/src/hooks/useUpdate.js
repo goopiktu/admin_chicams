@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-const useUpdate = (url, method = "PATCH", dataToUpdate) => {
+const useUpdate = (url, method = "PATCH") => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const updateData = async () => {
+  const updateData = async (dataToUpdate) => {
     try {
       setLoading(true);
 

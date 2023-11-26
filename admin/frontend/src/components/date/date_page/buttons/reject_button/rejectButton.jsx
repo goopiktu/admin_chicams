@@ -3,7 +3,11 @@ import Popup from 'reactjs-popup';
 import "./rejectButton.css"
 import "../button.css"
 
-const RejectButton = () => {
+const RejectButton = ({ onStatusUpdate }) => {
+
+  const handleRejectClick = async () => {
+    onStatusUpdate('Rejected');
+  };
 
   return (
     <div className='reject-wrapper'>
@@ -21,7 +25,8 @@ const RejectButton = () => {
           <button
             className='yes'
           onClick={() => {
-            console.log('cliff')
+            handleRejectClick();
+            close();
           }}>
             Yes
           </button>

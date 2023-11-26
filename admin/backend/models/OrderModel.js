@@ -48,13 +48,13 @@ var OrderSchema = new mongoose.Schema({
         type: String,
         default: 'Pick-Up'
     },
-
+    // when the customer assigns the pickup
     dateOrdered: {
         type: String,
         // default: Date.now,
         required: true  
     },
-
+    // when the customer ordered
     datePickup: {
         type: Date,
         default: Date.now,
@@ -63,6 +63,13 @@ var OrderSchema = new mongoose.Schema({
 
     image: {
         type: String
+    },
+
+    status: {
+        type: String,
+        enum: ['Pending', 'Accepted', 'Rejected', 'Completed'],
+        default: 'Pending',
+        required: true
     }
 
 });

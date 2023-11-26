@@ -25,6 +25,11 @@ export default function RightContainer({order}) {
                 <p>{order.orderDes}</p>
             </div>
 
+            <div>
+                <h1>STATUS</h1>
+                <p>{order.status}</p>
+            </div>
+
            
 
         </div>

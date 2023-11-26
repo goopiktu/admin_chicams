@@ -3,7 +3,11 @@ import Popup from 'reactjs-popup';
 import "./completeButton.css"
 import "../button.css"
 
-const CompleteButton = () => {
+const CompleteButton = ({ onStatusUpdate }) => {
+
+  const onCompleteClick = async () => {
+    onStatusUpdate('Completed');
+  }
 
   return (
     <div className='complete-wrapper'>
@@ -21,7 +25,8 @@ const CompleteButton = () => {
           <button 
           className='no'
           onClick={() => {
-            console.log('cliff')
+            onCompleteClick();
+            close();
           }}>
             Yes
           </button>
