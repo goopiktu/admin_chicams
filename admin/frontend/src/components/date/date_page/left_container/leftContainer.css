@@ -6,6 +6,7 @@
     box-shadow: 0px 0px 2px 2px #7A7A7A;
     border-width: thin;
     padding: 10px;
-    max-width: 404px;
-    max-height: 200px;
+    /* max-width: 404px;
+    max-height: 200px; */
+    flex: 1;
 }
