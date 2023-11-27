@@ -54,6 +54,19 @@ function DaySquare({day, month, year, selectOrderDate}){
                 }
         }, [isValidDay, isValidMonth, isValidDate, day, month, year])
 
+        const getStatusColor = (status) => {
+                const colorMap = {
+                        Pending: '#A05496', 
+                        Accepted: '#249D57',
+                        Rejected: '#E36363',
+                        Completed: '#3CAEA3'
+                }; 
+
+                console.log(colorMap[status]);
+
+                return colorMap[status] || 'yellow';
+        }
+
         return(
                <div className="day-square">
                         <div className="day-number-div">
@@ -63,8 +76,11 @@ function DaySquare({day, month, year, selectOrderDate}){
                                 {loading ? (
                                         <p>Loading...</p>
                                 ) : (
-                                        orders && orders.length !== 0 && orders.map(() => (
-                                              <div className="order-status">Order</div>
+                                        orders && orders.length !== 0 && orders.map((order) => (
+                                              <div className="order-status"
+                                                   style={{background: getStatusColor(order.status)}}>
+                                                {order.orderNum}
+                                              </div>
                                         ))
                                 )}
                         </div>
