@@ -1,11 +1,12 @@
 const Order = require('../models/OrderModel');
+const Product = require('../models/ProductModel.js');
 const mongoose = require('mongoose');
 
 const getOrderList = async (req, res) => {
   try {
     const { date } = req.query;
 
-    console.log(date);
+    // console.log(date);
 
     const orderList = await Order.find({ dateOrdered: date });
 
@@ -45,7 +46,23 @@ const updateOrderStatus = async (req, res) => {
   }
 };
 
+const getProduct = async (req, res) => {
+  try{
+    const { productName } = req.query; 
+
+    console.log('SERVER PRODUCT NAME: ', productName); 
+
+    const product = await Product.find({ name: productName }); 
+
+    res.status(200).json(product);
+  } catch(error) {
+    console.error(error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 module.exports = {
   getOrderList,
-  updateOrderStatus
+  updateOrderStatus,
+  getProduct
 };

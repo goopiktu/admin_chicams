@@ -25,15 +25,16 @@ const OrderPage = () => {
     });
 
     const { data: orders, loading, refetch } = useFetch(`/api/orders/?date=${selectedDate}`);
+    const [currentProduct, setCurrentProduct] = useState({});
     const { updateData: updateOrderStatus, loading: updateLoading, error: updateError } = useUpdate("/api/updateOrderStatus", "PATCH");
 
     const handleDateChange = (newDate) => {
         setSelectedDate(newDate);
     };
 
-    useEffect(() => {
-        console.log(orders);
-    }, [orders]);
+    // useEffect(() => {
+    //     console.log(orders);
+    // }, [orders]);
 
     const handleStatusUpdate = async (order, newStatus) => {
         console.log(order._id, newStatus);
@@ -46,6 +47,22 @@ const OrderPage = () => {
             console.error("Error updating order status:", error);
         }
     };
+
+     // fetch(`http://localhost:4000/api/orders/getProduct/?productName=${productName}`)
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         // setCurrentProduct(data)
+        //         setCurrentProduct(data);
+        //     })
+        //     .catch((err) => console.log(err));
+
+    // const getProductImage = (productName) => {
+    //     console.log('PRODUCT NAME: ', productName);
+
+    //     const { data: product, loading, refetch } = useFetch(`/api/orders/getProduct?productName=${productName}`);
+
+    //     console.log('PRODUCT_PATH: ', product);
+    // }
     
     return (
         <div className="date-page-container">
@@ -64,6 +81,9 @@ const OrderPage = () => {
                             {orders.length === 0 ? ( <p>No orders.</p>) : (
                                 orders.map((order) => (
                                     <div className="container" key={order.id}>
+                                        {/* <div className="order-img">
+                                            {getProductImage(order.productName)}
+                                        </div> */}
                                         <div className="header-container">
                                             <div className="order-number">
                                                 <h1>Order Number</h1>
