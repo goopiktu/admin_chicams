@@ -79,7 +79,7 @@ function DaySquare({day, month, year, selectOrderDate}){
                                         orders && orders.length !== 0 && orders.map((order) => (
                                               <div className="order-status"
                                                    style={{background: getStatusColor(order.status)}}>
-                                                {order.orderNum}
+                                                Orders
                                               </div>
                                         ))
                                 )}
