@@ -13,11 +13,13 @@ function AddContact({ onFormSubmit }) {
                 modal 
                 onClose={() => setIsOpen(false)}
                 onOpen={() => setIsOpen(true)}
+                closeOnDocumentClick={false}
                 contentStyle={{ display: isOpen ? 'block' : 'none', 
                                 animationName: isOpen ? 'fade-in' : 'fade-out',
                                 animationDuration: '0.25s',
                                 animationTimingFunction: 'ease-in-out',
-                                height: 'auto'}}
+                                height: 'auto',
+                                width: '500px'}}
                 >
                     {close => (
                         <div className="contact-modal active">
@@ -34,27 +36,41 @@ function AddContact({ onFormSubmit }) {
                             <div className="contactForm-title">Contact Form</div>
 
                             <form className="contactform-box" onSubmit={onFormSubmit}>
-                                <label className="contact-label" name="name">Name</label>
-                                <input type="text" className="contact-input" name="name"/>
 
-                                <label className="contact-label" name="address">Address</label>
-                                <input type="text" className="contact-input" name="address"/>
+                                <div className="form-row">
+                                    <div className="input-wrapper mr-15">
+                                        <label className="contact-label" for="name">Name</label>
+                                        <input type="text" className="contact-input" name="name"/>
+                                    </div>
 
-                                <label className="contact-label" name="contactNo">Contact No.</label>
-                                <input type="text" className="contact-input" name="contactNo"/>
+                                    <div className="input-wrapper">
+                                        <label className="contact-label" for="email">Email</label>
+                                        <input type="text" className="contact-input" name="email"/>
+                                    </div>
+                                    
+                                </div>
 
-                                <label className="contact-label" name="fbLink">Facebook Link</label>
-                                <input type="text" className="contact-input" name="fbLink"/>
+                                <div className="form-row">
+                                    <div className="input-wrapper mr-15">
+                                        <label className="contact-label" for="contactNo">Contact No.</label>
+                                        <input type="text" className="contact-input" name="contactNo"/>
+                                    </div>
+                                    
+                                    <div className="input-wrapper">
+                                        <label className="contact-label" for="fbLink">Facebook Link</label>
+                                        <input type="text" className="contact-input" name="fbLink"/>
+                                    </div>
+                                </div>
 
-                                <label className="contact-label" name="email">Email</label>
-                                <input type="text" className="contact-input" name="email"/>
+                                <div className="form-row">
+                                    <div className="input-wrapper">
+                                        <label className="contact-label" for="address">Address</label>
+                                        <input type="text" className="contact-input" name="address"/>
+                                    </div>
+                                </div>
 
                                 <div className="formbtn-layout">
-                                    <button onClick={() => {
-                                        close();
-                                    }}> Cancel </button>
-                                    
-                                    <button type="submit">Add Contact</button>
+                                    <button type="submit" className="contact-btn">Add Contact</button>
                                 </div>
                                 
                             </form>
