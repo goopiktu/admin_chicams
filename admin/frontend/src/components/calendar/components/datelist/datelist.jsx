@@ -47,7 +47,9 @@ function Datelist({selectOrderDate}){
                 if(currentMonth === 0){
                         setCurrentYear(currentYear - 1);
                         setCurrentMonth(11);
-                }
+
+                        return;
+                } 
 
                 if(currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear()){
                         document.querySelector('.prev-month-arrow').style.pointerEvents = 'none';

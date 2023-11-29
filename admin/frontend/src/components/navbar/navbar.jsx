@@ -78,7 +78,7 @@ function NavBar(){
                 </div>
 
                 <div className="text-container">
-                    <a className="text-navbar" href="/settings">Settings</a>
+                    <a className="text-navbar" onClick={toggleSettings}>Settings</a>
                     <div className="toggle-navbar" id="toggle-settings"></div>
                 </div>
             </div>
