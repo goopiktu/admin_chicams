@@ -33,7 +33,20 @@ const OrderPage = () => {
     };
 
     // useEffect(() => {
-    //     console.log(orders);
+
+    //     if(!loading){
+    //         const updatedOrders = orders.map((order) => {
+    //             return {
+    //             ...order,
+    //             img: '/images/2.png',
+    //             };
+    //         });
+            
+    //         setOrders(updatedOrders);
+
+    //         console.log('NEW_ORDER: ', orders_img);
+    //     }
+
     // }, [orders]);
 
     const handleStatusUpdate = async (order, newStatus) => {
@@ -48,13 +61,13 @@ const OrderPage = () => {
         }
     };
 
-     // fetch(`http://localhost:4000/api/orders/getProduct/?productName=${productName}`)
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //         // setCurrentProduct(data)
-        //         setCurrentProduct(data);
-        //     })
-        //     .catch((err) => console.log(err));
+    //  fetch(`http://localhost:4000/api/orders/getProduct/?productName=${productName}`)
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             // setCurrentProduct(data)
+    //             setCurrentProduct(data);
+    //         })
+    //         .catch((err) => console.log(err));
 
     // const getProductImage = (productName) => {
     //     console.log('PRODUCT NAME: ', productName);
@@ -87,7 +100,7 @@ const OrderPage = () => {
                                                 {getProductImage(order.productName)}
                                             </div> */}
                                             <div className="order-img">
-                                                <img src="/images/1.png"/>
+                                                <img src={`${order.img}`}/>
                                             </div>
 
                                             <div className="column-container"> 
