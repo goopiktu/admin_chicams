@@ -1,10 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Popup from 'reactjs-popup';
 import './addButton.css';
+import { useNavigate } from 'react-router-dom';
 
 function AddContact({ onFormSubmit }) {
+    const navigate = useNavigate();
 
     const [isOpen, setIsOpen] = useState(false);
+    const [formData, setFormData] = useState({ name: '', email: '', contactNo: '', fbLink: '', address: '' });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const data = new FormData();
+        data.append('name', formData.name);
+        data.append('email', formData.email);
+        data.append('contactNo', formData.contactNo);
+        data.append('fbLink', formData.fbLink);
+        data.append('address', formData.address);
+
+        console.log(data);
+
+        fetch('http://localhost:4000/api/submitContact/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        })
+            .then((response) => {
+                if(response.ok){
+                    console.log('Successfully inserted one document');
+                    window.location.reload(false);
+                } else {
+                    console.error('Insert one document failed');
+                }
+            })
+            .catch((err) => {
+                console.error('An error occurred: ', err);
+            });
+    }
 
     return (
         <>
@@ -35,17 +70,27 @@ function AddContact({ onFormSubmit }) {
 
                             <div className="contactForm-title">Contact Form</div>
 
-                            <form className="contactform-box" onSubmit={onFormSubmit}>
+                            <form className="contactform-box" onSubmit={handleSubmit}>
 
                                 <div className="form-row">
                                     <div className="input-wrapper mr-15">
                                         <label className="contact-label" for="name">Name</label>
-                                        <input type="text" className="contact-input" name="name"/>
+                                        <input 
+                                            type="text" 
+                                            className="contact-input" 
+                                            name="name"
+                                            value={formData.name} 
+                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
                                     </div>
 
                                     <div className="input-wrapper">
                                         <label className="contact-label" for="email">Email</label>
-                                        <input type="text" className="contact-input" name="email"/>
+                                        <input 
+                                            type="text" 
+                                            className="contact-input" 
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
                                     </div>
                                     
                                 </div>
@@ -53,19 +98,34 @@ function AddContact({ onFormSubmit }) {
                                 <div className="form-row">
                                     <div className="input-wrapper mr-15">
                                         <label className="contact-label" for="contactNo">Contact No.</label>
-                                        <input type="text" className="contact-input" name="contactNo"/>
+                                        <input 
+                                            type="text" 
+                                            className="contact-input" 
+                                            name="contactNo"
+                                            value={formData.contactNo}
+                                            onChange={(e) => setFormData({ ...formData, contactNo: e.target.value })} />
                                     </div>
                                     
                                     <div className="input-wrapper">
                                         <label className="contact-label" for="fbLink">Facebook Link</label>
-                                        <input type="text" className="contact-input" name="fbLink"/>
+                                        <input 
+                                            type="text" 
+                                            className="contact-input" 
+                                            name="fbLink"
+                                            value={formData.fbLink}
+                                            onChange={(e) => setFormData({ ...formData,  fbLink: e.target.value })} />
                                     </div>
                                 </div>
 
                                 <div className="form-row">
                                     <div className="input-wrapper">
                                         <label className="contact-label" for="address">Address</label>
-                                        <input type="text" className="contact-input" name="address"/>
+                                        <input 
+                                            type="text" 
+                                            className="contact-input" 
+                                            name="address"
+                                            value={formData.address}
+                                            onChange={(e) => setFormData({ ...formData, address: e.target.value })} />
                                     </div>
                                 </div>
 

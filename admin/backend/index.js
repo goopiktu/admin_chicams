@@ -3,8 +3,9 @@ const express = require('express');
 // const hbs = require('hbs');
 const OrderModel = require('./models/OrderModel')
 
-const orderRoute = require('./routes/order')
-const adminRoute = require('./routes/admin')
+const orderRoute = require('./routes/order');
+const adminRoute = require('./routes/admin');
+const settingRoute = require('./routes/setting');
 
 const mongoose = require("mongoose");
 
@@ -41,9 +42,11 @@ app.use((req, res, next) => {
 
 
 
-app.use("/api/orders", orderRoute)
-app.use("/api/updateOrderStatus/", orderRoute)
-app.use("/api/updateLimit", adminRoute)
+app.use("/api/orders", orderRoute);
+app.use("/api/updateOrderStatus/", orderRoute);
+app.use("/api/updateLimit", adminRoute);
+app.use("/api/submitContact", settingRoute);
+app.use("/api/getContacts", settingRoute);
 
 
 db.connect();
