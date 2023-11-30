@@ -14,7 +14,6 @@
         font-weight: 600;
         font-size: 24px;
         line-height: 33px;
-
         text-align: right;
 }
 
@@ -23,15 +22,24 @@
         flex-direction: row;
         justify-content: center;
         align-items: center;
+        cursor: default;
+
+        width: auto;
+        height: 15px;
+        border-radius: 5px;
         padding: 10px;
         gap: 10px;
         margin-bottom: 3px;
 
-        width: auto;
-        height: 15px;
-
         background: #A05496;
-        border-radius: 5px;
-
         color: white;
+
+        -webkit-transition : filter 250ms ease-out;
+        -moz-transition : filter 250ms ease-out;
+        -o-transition : filter 250ms ease-out;
+        transition : filter 250ms ease-out;
+}
+
+.order-status:hover{
+        filter: brightness(85%);
 }
