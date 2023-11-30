@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import $ from 'jquery';
 import useFetch from "../../../../hooks/useFetch.js";
+import { useNavigate } from 'react-router-dom';
 
 import '../daysquare/daysquare.css';
 
@@ -13,6 +14,8 @@ function DaySquare({day, month, year, selectOrderDate}){
         const [alertMessage, setAlertMessage] = useState('Date is unavailable, pick another date.');
         const [hasOrder, setHasOrder] = useState(false);
         const dayOfSquare = new Date(year, month, day);
+
+        const navigate = useNavigate();
 
         const { data: orders, loading } = useFetch(`/api/orders/?date=${dayOfSquare.toLocaleDateString()}`);
 
@@ -78,7 +81,8 @@ function DaySquare({day, month, year, selectOrderDate}){
                                 ) : (
                                         orders && orders.length !== 0 && orders.map((order) => (
                                               <div className="order-status"
-                                                   style={{background: getStatusColor(order.status)}}>
+                                                   style={{background: getStatusColor(order.status)}}
+                                                   onClick={() => navigate('/date', { state: { dayOfSquare } })}>
                                                 Orders
                                               </div>
                                         ))

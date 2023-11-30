@@ -24,22 +24,6 @@ function Calendar({handleDateOrdered, setShowNavbar, setShow}){
         };
 
         return(
-                // <div className="calendar-div">
-
-                //         {isOpen && (<div>
-                //                 <div className="top-bar">
-                //                         <Button className="calendar-exit-button" onClick={closeComponent}>
-                //                                 Exit
-                //                         </Button>
-                //                 </div>
-
-                //                 <Sidebar date={orderDate.toDateString()}/>
-
-                //                 <div className="calendar-dates">
-                //                         <Datelist selectOrderDate={selectOrderDate}/>
-                //                 </div>
-                //         </div>)}
-                // </div>
                 <div className="root-calendar">
                     < NavBar />
                     
@@ -48,8 +32,6 @@ function Calendar({handleDateOrdered, setShowNavbar, setShow}){
                         < Datelist /> 
                     </div>
                 </div>
-                
-
         );
 }
 

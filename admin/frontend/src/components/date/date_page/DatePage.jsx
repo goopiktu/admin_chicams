@@ -10,18 +10,31 @@ import CompleteButton from "./buttons/complete_button/completeButton";
 import TopBar from "../../header/header.jsx";
 import './Datepage.css'
 import useUpdate from "../../../hooks/useUpdate.js";
+import { useLocation } from 'react-router-dom';
 
 const OrderPage = () => {
+
+    const location = useLocation();
+    const dateFromCal = location.state?.dayOfSquare || '';
+
     const [selectedDate, setSelectedDate] = useState(() => {
-        const currentDate = new Date();
-        const mm = String(currentDate.getMonth() + 1).padStart(2, "0");
-        const dd = String(currentDate.getDate());
-        const yyyy = currentDate.getFullYear();
-      
-        const formattedDate = `${mm}/${dd}/${yyyy}`;
-        console.log("Initial selectedDate:", formattedDate);
-      
-        return formattedDate;
+
+        if(dateFromCal !== ''){
+
+            return dateFromCal.toLocaleDateString();
+            
+        } else{
+
+            const currentDate = new Date();
+            const mm = String(currentDate.getMonth() + 1).padStart(2, "0");
+            const dd = String(currentDate.getDate());
+            const yyyy = currentDate.getFullYear();
+        
+            const formattedDate = `${mm}/${dd}/${yyyy}`;
+            console.log("Initial selectedDate:", formattedDate);
+        
+            return formattedDate;
+        }
     });
 
     const { data: orders, loading, refetch } = useFetch(`/api/orders/?date=${selectedDate}`);
@@ -31,23 +44,6 @@ const OrderPage = () => {
     const handleDateChange = (newDate) => {
         setSelectedDate(newDate);
     };
-
-    // useEffect(() => {
-
-    //     if(!loading){
-    //         const updatedOrders = orders.map((order) => {
-    //             return {
-    //             ...order,
-    //             img: '/images/2.png',
-    //             };
-    //         });
-            
-    //         setOrders(updatedOrders);
-
-    //         console.log('NEW_ORDER: ', orders_img);
-    //     }
-
-    // }, [orders]);
 
     const handleStatusUpdate = async (order, newStatus) => {
         console.log(order._id, newStatus);
@@ -60,22 +56,6 @@ const OrderPage = () => {
             console.error("Error updating order status:", error);
         }
     };
-
-    //  fetch(`http://localhost:4000/api/orders/getProduct/?productName=${productName}`)
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             // setCurrentProduct(data)
-    //             setCurrentProduct(data);
-    //         })
-    //         .catch((err) => console.log(err));
-
-    // const getProductImage = (productName) => {
-    //     console.log('PRODUCT NAME: ', productName);
-
-    //     const { data: product, loading, refetch } = useFetch(`/api/orders/getProduct?productName=${productName}`);
-
-    //     console.log('PRODUCT_PATH: ', product);
-    // }
     
     return (
         <div className="date-page-container">
