@@ -6,8 +6,6 @@ const getOrderList = async (req, res) => {
   try {
     const { date } = req.query;
 
-    // console.log(date);
-
     const orderList = await Order.find({ dateOrdered: date });
 
     res.status(200).json(orderList);
@@ -20,9 +18,6 @@ const getOrderList = async (req, res) => {
 const updateOrderStatus = async (req, res) => {
   const orderId = req.body._id;
   const newStatus = req.body.status;
-
-  console.log(orderId);
-  console.log(newStatus);
 
   try {
     const order = await Order.findById(orderId);
@@ -52,9 +47,7 @@ const updateOrderStatus = async (req, res) => {
 
 const getProduct = async (req, res) => {
   try{
-    const { productName } = req.query; 
-
-    console.log('SERVER PRODUCT NAME: ', productName); 
+    const { productName } = req.query;
 
     const product = await Product.find({ name: productName }); 
 

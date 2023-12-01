@@ -11,14 +11,12 @@ function Calendar({handleDateOrdered, setShowNavbar, setShow}){
         const [isOpen, setIsOpen] = useState(true);
 
         const closeComponent = () => {
-                // setIsOpen(false);
                 setShowNavbar(true);
                 setShow(false);
         };
 
         const selectOrderDate = (date) => {
                 setOrderDate(date);
-                console.log('Date from component CALENDAR: ' + date);
 
                 handleDateOrdered(date);
         };
