@@ -21,7 +21,6 @@ const getLimit = async (req, res) => {
   try {
     const admin = await Admin.findOne({});
     if (!admin) {
-      // Handle the case where no admin document exists
       res.status(404).json({ message: 'Admin document not found' });
       return;
     }
@@ -33,7 +32,6 @@ const getLimit = async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
-
 
 module.exports = { 
   updateLimit 

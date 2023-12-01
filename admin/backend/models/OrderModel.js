@@ -41,24 +41,21 @@ var OrderSchema = new mongoose.Schema({
     orderDes: {
         type: String,
         default: 'None',
-        // required: true
     },
 
     address: {
         type: String,
         default: 'Pick-Up'
     },
-    // when the customer assigns the pickup
+   
     dateOrdered: {
         type: String,
-        // default: Date.now,
         required: true  
     },
-    // when the customer ordered
+
     datePickup: {
         type: Date,
         default: Date.now,
-        // required: true
     },
 
     image: {

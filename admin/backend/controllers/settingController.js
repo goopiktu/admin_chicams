@@ -7,8 +7,6 @@ const submitContact = async (req, res) => {
 
         const newContact = new Contact(data);
 
-        console.log('CONTACT: ', newContact);
-
         newContact.save()
             .then((savedContact) => {
                 res.status(201).json(savedContact);
