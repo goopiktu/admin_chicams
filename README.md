@@ -1,22 +1,19 @@
 # admin_chicams
 
-To do: 
+To run the program locally you must first install node.js
+https://nodejs.org/en/download/
 
-big task:
-Task Board for owner
-owner calendar [will do general calendar with migui]
+1st step:
+- npm i to install all the dependencies
 
+2nd step: 
+- open 2 terminals that lead into the backend and frontend 
+Example: 
+C:\Example\path\admin_chicams\frontend
+C:\Example\path\admin_chicams\backend
 
-Task Board for owner: 
+3rd step:
+- enter "npm run start" in the backend to establish a connection to the database
 
-- Be able to display the requests of the customer
-
-- Accept requests from customer 
-1 must notify customer? 
-2 recipt? 
-3 
-
-
-
-- Reject requests from customer
-- Complete requests from customer 
+4th step:
+- enter "npm run start" in the frontend to run the interface. 
