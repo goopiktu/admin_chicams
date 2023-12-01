@@ -77,9 +77,6 @@ const OrderPage = () => {
                                     
                               
                                         <div className="container" key={order.id}>
-                                            {/* <div className="order-img">
-                                                {getProductImage(order.productName)}
-                                            </div> */}
                                             <div className="order-img">
                                                 <img src={`${order.img}`}/>
                                             </div>
@@ -87,9 +84,8 @@ const OrderPage = () => {
                                             <div className="column-container"> 
                                                 <div className="header-container">
                                                     <div className="order-number">
-                                                        <h1>Order Number</h1>
+                                                        <h1>{order.orderNum}</h1>
                                                         <div className="spacer"/>
-                                                        <p>{order.orderNum}</p>
                                                     </div>
                                                     <div className="buttoncontainer">
                                                         <AcceptButton order={order} onStatusUpdate={(newStatus) => handleStatusUpdate(order, newStatus)}/>

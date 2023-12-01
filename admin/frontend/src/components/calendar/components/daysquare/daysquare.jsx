@@ -83,7 +83,7 @@ function DaySquare({day, month, year, selectOrderDate}){
                                               <div className="order-status"
                                                    style={{background: getStatusColor(order.status)}}
                                                    onClick={() => navigate('/date', { state: { dayOfSquare } })}>
-                                                Orders
+                                                {order.productName}
                                               </div>
                                         ))
                                 )}
