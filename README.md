@@ -16,4 +16,7 @@ C:\Example\path\admin_chicams\backend
 - enter "npm run start" in the backend to establish a connection to the database
 
 4th step:
-- enter "npm run start" in the frontend to run the interface. 
+- enter "npm run start" in the frontend to run the interface.
+
+OR 
+Run the batch file in the admin directory
