@@ -50,8 +50,9 @@ const OrderPage = () => {
         try {
             await updateOrderStatus({ _id: order._id, status: newStatus });
             console.log("Order status updated successfully");
-            // Refetch the data after the update to trigger a re-render
-            refetch();
+            if (newStatus === "Rejected" || newStatus === "Completed") {
+                refetch();
+            }
         } catch (error) {
             console.error("Error updating order status:", error);
         }

@@ -31,7 +31,11 @@ const updateOrderStatus = async (req, res) => {
       return res.status(404).json({ message: 'Order not found' });
     }
 
-    if (!['Pending', 'Accepted', 'Rejected', 'Completed'].includes(newStatus)) {
+    if (newStatus === "Rejected" || newStatus === "Completed") {
+      await Order.findByIdAndDelete(orderId);
+    }
+
+    if (!['Pending', 'Accepted'].includes(newStatus)) {
       return res.status(400).json({ message: 'Invalid status' });
     }
 
